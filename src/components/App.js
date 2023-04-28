@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/App.css';
-const App = () => {
- const [selectedShape, setSelectedShape] = useState('square');
+function App() {
+  const [selectedShape, setSelectedShape] = useState('square');
   const [shapes, setShapes] = useState([]);
 
   const handleAddShape = () => {
@@ -11,22 +11,22 @@ const App = () => {
       <div className="circle" key={shapes.length}></div>
     );
     setShapes([...shapes, newShape]);
+  }
+
   return (
-    <div id="main">
+    <div>
       <div id="shape-creator">
         <select value={selectedShape} onChange={e => setSelectedShape(e.target.value)}>
           <option value="square">Square</option>
           <option value="circle">Circle</option>
         </select>
         <button onClick={handleAddShape}>Add shape</button>
-
       </div>
       <div id="shapes-holder">
         {shapes}
       </div>
     </div>
-  )
+  );
 }
-
 
 export default App;
